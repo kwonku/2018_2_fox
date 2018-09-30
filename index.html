@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>test</title>
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<style type="text/css">
+		body{text-align: center; background-color: white; background-size:cover;}
+		#fox{width: 640px; height: 480px; background: url('fox.gif'); background-size:cover; margin: auto; margin-top: 100px;
+			animation: sll 2s forwards;}
+
+		@keyframes sll{
+			from{opacity: 0;}
+			to{opacity: 1;}
+
+		@keyframes big{
+		from{width: 640px; height: 480px;}
+		to{width: 966px; height: 724px;}
+	</style>
+</head>
+	<body>
+		<div id="fox">
+		</div>
+
+		<audio id="say">
+  			<source src="say.mp3" type="audio/mpeg"> 		
+		</audio>
+
+		<audio id="ring">
+  			<source src="ring.mp3" type="audio/mpeg"> 		
+		</audio>
+
+	<script type="text/javascript">
+
+		var currentFox = 1;
+
+		fox.onclick = function(){
+			if(currentFox == 1){
+				fox.style.background = "url('say.gif')";
+				say.play();
+				currentFox = 2;
+			}else if(currentFox ==2){
+				fox.style.background = "url('ring.gif')"
+				fox.style.width = '1280px';
+				fox.style.height = '720px';
+				fox.style.marginTop = '0px';
+				say.pause();
+				ring.play();
+				currentFox = 3;			
+			}else if(currentFox ==3){
+				fox.style.background = "url('fox.gif')"
+				fox.style.width = '640px';
+				fox.style.height = '480px';
+				fox.style.marginTop = '100px';
+				ring.pause();
+				currentFox = 1;			
+			}
+		}
+	</script>	
+	</body>
+</html>
